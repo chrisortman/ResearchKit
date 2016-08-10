@@ -37,6 +37,7 @@
 @class ORKConsentSectionFormatter;
 @class ORKConsentSignatureFormatter;
 @class ORKConsentSection;
+@class ORKHTMLPDFPageRenderer;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -168,6 +169,8 @@ ORK_CLASS_AVAILABLE
  */
 - (void)makePDFWithCompletionHandler:(void (^)(NSData * _Nullable PDFData, NSError * _Nullable error))handler;
 
+- (void)makeCustomPDFWithCompletionHandler:(ORKHTMLPDFPageRenderer *)renderer
+                         completionHandler:(void (^)(NSData * _Nullable PDFData, NSError * _Nullable error))handler;
 @end
 
 NS_ASSUME_NONNULL_END
