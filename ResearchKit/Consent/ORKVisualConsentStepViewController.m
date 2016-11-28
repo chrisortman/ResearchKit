@@ -375,6 +375,9 @@
         if (completion != NULL) {
             completion(finished);
         }
+        
+        ORKConsentSection *displayedSection = [viewController section];
+        [strongSelf didShowSection:displayedSection];
     }];
 }
 
@@ -625,7 +628,12 @@
                       transitionBeforeAnimate:transitionBeforeAnimate
                                    completion:completion];
         }
+        
     }
+}
+
+- (void)didShowSection:(ORKConsentSection *)section {
+    // NOOP Let subclass provide behaviour
 }
 
 - (ORKConsentSceneViewController *)viewControllerForIndex:(NSUInteger)index {

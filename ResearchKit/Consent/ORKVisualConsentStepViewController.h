@@ -33,6 +33,7 @@
 #import <ResearchKit/ORKDefines.h>
 #import <ResearchKit/ORKStepViewController.h>
 
+@class ORKConsentSection;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -51,6 +52,8 @@ ORK_CLASS_AVAILABLE
  The view in which animations are displayed.
  */
 @property (nonatomic, strong, nullable) UIView *animationView;
+
+- (void)didShowSection:(ORKConsentSection *)section;
 
 @end
 
