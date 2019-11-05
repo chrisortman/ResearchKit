@@ -11,7 +11,7 @@
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "86CC8E991AC09332001CCD89"
