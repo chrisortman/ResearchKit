@@ -105,6 +105,7 @@
 #import <ResearchKit/ORKConsentDocument.h>
 #import <ResearchKit/ORKConsentSection.h>
 #import <ResearchKit/ORKConsentSignature.h>
+#import <ResearchKit/ORKHTMLPDFPageRenderer.h>
 
 #import <ResearchKit/ORKKeychainWrapper.h>
 

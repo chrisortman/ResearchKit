@@ -32,9 +32,11 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
+#import <ResearchKit/ORKDefines.h>
 
 #pragma mark - ORKHTMLPDFWriter Interface
 
+ORK_CLASS_AVAILABLE
 @interface ORKHTMLPDFPageRenderer : UIPrintPageRenderer
 
 @property (nonatomic) UIEdgeInsets pageMargins;
