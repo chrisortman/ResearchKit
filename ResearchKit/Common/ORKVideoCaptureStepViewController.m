@@ -287,11 +287,12 @@
     ORKStepResult *stepResult = [super result];
     NSDate *now = stepResult.endDate;
     
+    
     NSMutableArray *results = [NSMutableArray arrayWithArray:stepResult.results];
     ORKFileResult *fileResult = [[ORKFileResult alloc] initWithIdentifier:self.step.identifier];
     fileResult.startDate = stepResult.startDate;
     fileResult.endDate = now;
-    fileResult.contentType = @"video/mp4";
+    fileResult.contentType = [NSString stringWithFormat:@"video/%@", [_fileURL pathExtension]];
     fileResult.fileURL = _fileURL;
     [results addObject:fileResult];
     stepResult.results = [results copy];
@@ -316,7 +317,7 @@
 - (void)capturePressed:(void (^)(void))handler {
     // Capture the video via the output
     dispatch_async(_sessionQueue, ^{
-        _fileURL = [self.outputDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",self.step.identifier]];
+        _fileURL = [self.outputDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mov",self.step.identifier]];
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if ([fileManager fileExistsAtPath:_fileURL.path]) {
@@ -324,6 +325,7 @@
         }
         AVCaptureConnection *connection = [_movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
         if (connection.isActive) {
+
             [_movieFileOutput startRecordingToOutputFileURL:_fileURL
                                           recordingDelegate:self];
             
